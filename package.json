@@ -1,0 +1,24 @@
+{
+  "name": "webassembly-test",
+  "version": "1.0.0",
+  "description": "webassembly, javascript, runtime, node",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:untouched && npm run build:optimized",
+    "build:untouched": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/module.untouched.wat -b dist/module.untouched.wasm --validate --sourceMap --measure",
+    "build:optimized": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/module.optimized.wat -b dist/module.optimized.wasm --validate --sourceMap --measure --optimize",
+    "example:node": "node services/nodejs/demo.js",
+    "example:browser": "node services/browser/server.js"
+  },
+  "author": "tom",
+  "license": "ISC",
+  "devDependencies": {
+    "assemblyscript": "^0.9.4",
+    "koa": "^2.11.0",
+    "koa-static": "^5.0.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.9.4"
+  }
+}
